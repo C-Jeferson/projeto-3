@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        header {
+            background-color: rgb(0, 0, 0);
+            color: #fff;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        section {
+            background-color: bisque;
+        }
+
+        .oi {
+            height: 172vh;
+        }
+
+        .navbar-toggler {
+            background-color: #fff;
+            padding: 0;
+        }
+
+        #cabecalho .nav-item .nav-link.active,
+        #cabecalho .nav-item .nav-link.active:hover {
+            background-color: #fff;
+            color: black;
+        }
+
+        #cabecalho .nav-item .nav-link {
+            border-radius: 100px;
+            background-color: rgb(26, 25, 25); 
+        }
+
+        #cabecalho .nav-item .nav-link:hover {
+            color: rgb(22, 22, 22);
+            background-color: rgb(70, 67, 67);
+        }
+    </style>
+</head>
+<body>
+    <header id="cabecalho" class="navbar navbar-expand-lg sticky-top p-4">
+        <nav class="container-fluid pe-0">
+
+            <div class="d-flex">
+                <i class="bi bi-steam fs-2"></i>
+                <a class="mx-2" href="#"><h1 class="m-0">Steam</h1></a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="menu">
+                <ul class="nav nav-pills fw-bold d-block d-lg-flex my-2 text-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">
+                            <i class="bi bi-house"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">
+                            <i class="bi bi-card-text"></i>
+                            Sobre
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">
+                            <i class="bi bi-chat-text"></i>
+                            Contato
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#link">
+                            <i class="bi bi-person"></i>
+                            Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <div  data-bs-spy="scroll" data-bs-target="#cabecalho" data-bs-smooth-scroll="true">
+        <section class="p-5 oi" id="inicio">
+            <div class="container text-center">
+                <h2 class="display-4 mb-3">Bem-vindo ao Site Steam</h2>
+                <p class="lead">Explore nossa plataforma e aproveite os melhores jogos e ofertas!</p>
+                <a href="#sobre" class="btn btn-primary btn-lg">Saiba mais sobre nós</a>
+            </div>
+        </section>
+
+        <section class="p-5 oi" id="sobre">
+            <div class="container">
+                <h2 class="display-4 mb-3 text-center">Sobre a Steam</h2>
+                <p>A Steam é uma plataforma digital que oferece uma vasta coleção de jogos para todos os gostos. Com a Steam, você pode comprar, jogar, discutir e até mesmo desenvolver seus próprios jogos.</p>
+                <p>Temos diversas ferramentas e funcionalidades para que você tenha a melhor experiência de jogo possível, incluindo descontos incríveis e uma comunidade ativa.</p>
+                <div class="text-center">
+                    <a href="#contato" class="btn btn-success btn-lg">Entre em contato conosco</a>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="p-5" id="contato">
+            <div class="container">
+                <h2 class="display-4 mb-3 text-center">Sobre a Steam</h2>
+                <p>A Steam é uma plataforma digital que oferece uma vasta coleção de jogos para todos os gostos. Com a Steam, você pode comprar, jogar, discutir e até mesmo desenvolver seus próprios jogos.</p>
+                <p>Temos diversas ferramentas e funcionalidades para que você tenha a melhor experiência de jogo possível, incluindo descontos incríveis e uma comunidade ativa.</p>
+                <div class="text-center">
+                    <a href="#contato" class="btn btn-success btn-lg">Entre em contato conosco</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-5" id="link">
+            <div class="container">
+                <h2 class="display-4 mb-3 text-center">Entre em Contato</h2>
+                <p>Tem alguma dúvida ou sugestão? Entre em contato com nossa equipe e responderemos o mais rápido possível!</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Seu Nome</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Seu E-mail</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem</label>
+                        <textarea class="form-control" id="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+        
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
