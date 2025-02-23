@@ -6,150 +6,1138 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <style>
+        body {
+            background-color: rgb(16, 16, 20);
+        }
+
         header {
-            background-color: rgb(0, 0, 0);
-            color: #fff;
+            background-color: rgb(18, 18, 22);
         }
 
         .navbar a {
             text-decoration: none;
-            color: #fff;
-        }
-
-        section {
-            background-color: bisque;
+            color: #ffffff;
         }
 
         .oi {
-            height: 172vh;
+            height: 300vh;
+            
         }
 
-        .navbar-toggler {
-            background-color: #fff;
-            padding: 0;
+        .oii {
+            height: 30vh;
+            background-color: #b23c3c;
         }
 
-        #cabecalho .nav-item .nav-link.active,
-        #cabecalho .nav-item .nav-link.active:hover {
-            background-color: #fff;
+        .oie {
+            height: 90vh;
+            background-color: #b23c3c;
+        }
+    
+        .nav-item .nav-link.active,
+        .nav-item .nav-link.active:hover {
+            color: #ffffff;
+        }
+
+        .nav-item .nav-link {
+            color: #ffffffa0;
+        }
+        
+        .nav-item .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .nav-item .nav-link:focus {
+            box-shadow: 0 0 3px white;
+            outline: 1px solid white
+        }
+
+        .form-control::placeholder{
+            color: #ffffffa0;
+        }
+
+        .form-control:focus {
+            outline: 1px solid white;
+            box-shadow: 0 0 1px white;
+        }
+
+        .form-control,
+        .input-group .input-group-text {
+            border: none;
+        }
+
+        .card {
+            background-color: transparent;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        #sobre .nav-link.active {
             color: black;
         }
 
-        #cabecalho .nav-item .nav-link {
-            border-radius: 100px;
-            background-color: rgb(26, 25, 25); 
+        img {
+            transition: all 0.3s ease-in-out;
         }
 
-        #cabecalho .nav-item .nav-link:hover {
-            color: rgb(22, 22, 22);
-            background-color: rgb(70, 67, 67);
+        img:hover,
+        .card:hover img{
+            filter: brightness(1.2);
         }
+
     </style>
 </head>
 <body>
-    <header id="cabecalho" class="navbar navbar-expand-lg sticky-top p-4">
-        <nav class="container-fluid pe-0">
+    <!-- cabeçalho -->
+    <header id="cabecalho" class="navbar navbar-expand-lg sticky-top pb-1 px-lg-3">
+        <nav class="container-fluid">
 
-            <div class="d-flex">
+            <div class="d-none d-lg-flex navbar-brand text-white">
                 <i class="bi bi-steam fs-2"></i>
-                <a class="mx-2" href="#"><h1 class="m-0">Steam</h1></a>
+                <a class="mx-2 " href="#" onclick="location.reload()" ><h1>Steam</h1></a>
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="d-flex w-100 d-lg-none align-items-center">
+                <div class="input-group">
+                    <span class="input-group-text bg-dark text-white px-1">
+                        <label for="pesquisa"><i class="bi bi-steam"></i></label>
+                    </span>
+                    <input class="form-control bg-dark text-white fw-bold ps-1" id="pesquisa" type="search" placeholder="Steam">
+                    <span class="input-group-text bg-dark text-white">
+                        <label for="pesquisa"><i class="bi bi-search"></i></label>
+                    </span>
+                    
+                </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="menu">
-                <ul class="nav nav-pills fw-bold d-block d-lg-flex my-2 text-center">
+                <a class="btn btn-danger fw-bold mx-2" href="#">
+                    <i class="bi bi-bell"></i>
+                </a>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">
-                            <i class="bi bi-house"></i>
-                            Inicio
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre">
-                            <i class="bi bi-card-text"></i>
-                            Sobre
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">
-                            <i class="bi bi-chat-text"></i>
-                            Contato
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#link">
-                            <i class="bi bi-person"></i>
-                            Login
-                        </a>
-                    </li>
-                </ul>
+                <a class="btn btn-primary fw-bold" href="#">
+                    <i class="bi-person-circle"></i>
+                </a>
             </div>
+            
+            <ul class="nav fw-bold d-none d-lg-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu-pesquisa">
+                        <i class="bi bi-house"></i>
+                        Inicio
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#games">
+                        <i class="bi bi-controller"></i>
+                        Games
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre">
+                        <i class="bi bi-card-text"></i>
+                        Sobre
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link me-1" href="#contato">
+                        <i class="bi bi-chat-text"></i>
+                        Contato
+                    </a>
+                </li>
+
+                <li class="nav-item d-none d-lg-block">
+                    <a class="btn btn-primary text-dark fw-bold" href="#link">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Entrar
+                    </a>
+                </li>
+            </ul>
         </nav>
     </header>
     
-    <div  data-bs-spy="scroll" data-bs-target="#cabecalho" data-bs-smooth-scroll="true">
-        <section class="p-5 oi" id="inicio">
-            <div class="container text-center">
-                <h2 class="display-4 mb-3">Bem-vindo ao Site Steam</h2>
-                <p class="lead">Explore nossa plataforma e aproveite os melhores jogos e ofertas!</p>
-                <a href="#sobre" class="btn btn-primary btn-lg">Saiba mais sobre nós</a>
+    <div class="container" data-bs-spy="scroll" data-bs-target="#cabecalho" data-bs-smooth-scroll="true" data-bs-offset="0">
+    <div class="container" data-bs-spy="scroll" data-bs-target="#menu" data-bs-smooth-scroll="true" data-bs-offset="0">
+        <!-- Carrossel e menu-pesquisa -->
+        <section class="o pb-5" id="menu-pesquisa">
+            <!-- menu-pesquisa -->
+            <div class="row py-lg-4" >
+                <nav class="fw-bold">
+                    <ul class="nav">
+
+                        <li class="col-lg-3 col-md-5 col-12 d-none d-lg-flex">
+                            <input class="form-control bg-dark text-white fw-bold border-none" type="search" placeholder="🔍 Pesquisar" id="">
+                        </li>
+
+                        <li class="nav-item dropdown d-lg-none col-md- col-1">
+                            <button class="nav-link dropdown-toggle px-1" type="button" data-bs-toggle="dropdown">
+                                Menu
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="nav-link dropdown-item" href="#" data-bs-toggle="tab">
+                                    <i class="bi bi-compass me-1"></i>
+                                    <span>Descobrir</span></a>
+                                </li>
+
+                                <li><a class="nav-link dropdown-item" href="#" data-bs-toggle="tab">
+                                    <i class="bi bi-menu-button-wide me-1"></i>
+                                    <span>Navegar</span></a>
+                                </li>
+
+                                <li><a class="nav-link dropdown-item" href="#" data-bs-toggle="tab">
+                                    <i class="bi bi-bell me-1"></i>
+                                    <span>Novidades</span></a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item col-lg-5 d-none d-lg-flex">
+                            <button href="#" class="nav-link d-flex" data-bs-toggle="tab">
+                                <i class="bi bi-compass me-1"></i>
+                                <span>Descobrir</span>
+                            </button>
+                        
+                            <button href="#" class="nav-link d-flex" data-bs-toggle="tab">
+                                <i class="bi bi-menu-button-wide me-1"></i>
+                                <span>Navegar</span>
+                            </button>
+                        
+                            <button href="#" class="nav-link d-flex" data-bs-toggle="tab">
+                                <i class="bi bi-bell me-1"></i>
+                                <span>Novidades</span>
+                            </button>
+                        </li>
+                        
+                        <li class="nav-item col-lg-4 col-md-5 col-11 ms-auto d-flex justify-content-end">
+                            <a href="#" class="nav-link d-flex" data-bs-toggle="tab">
+                                <i class="bi bi-bag-heart me-1"></i>
+                                <span class="d-non d-md-block">Lista de desejos</span>
+                                
+                            </a>
+                        
+                            <a href="#" class="nav-link d-flex px-1" data-bs-toggle="tab">
+                                <i class="bi bi-cart me-1"></i>
+                                <span>Compras</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <!-- Carrossel Principal -->
+            <div class="row pb-3">
+                <div class="col-lg-10 col-md-12">
+                    <div class="carousel slide" id="inicio" data-bs-ride="carousel">
+                        <div class="carousel-inner rounded">
+                            
+                            <div class="carousel-item active" data-bs-interval="3000">
+                                <img class="w-100" src="./img/red1.jpg" alt="">
+                            </div>
+        
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img class="w-100" src="./img/fifa3.jpg" alt="">
+                            </div>
+        
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img class="w-100" src="./img/hog3.jpg" alt="">
+                            </div>
+
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img class="w-100" src="./img/kong3.jpeg" alt="">
+                            </div>
+
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img class="w-100" src="./img/gta1.jpg" alt="">
+                            </div>
+
+                            <button class="carousel-control-prev d-lg-none" data-bs-target="#inicio" data-bs-slide="prev" type="button">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next d-lg-none" data-bs-target="#inicio" data-bs-slide="next" type="button">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+
+                            <div class="carousel-indicators d-lg-none">
+                                <button type="button" data-bs-target="#inicio" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#inicio" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#inicio" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#inicio" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#inicio" data-bs-slide-to="4"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Miniaturas -->
+                <div class="col-2 d-none d-lg-flex flex-column justify-content-between border-0">
+                    
+                    <button class="p-1 bg-dark rounded" data-bs-target="#inicio" data-bs-slide-to="0">
+                        <img class="w-100 rounded" src="./img/red1.jpg" alt="">
+                    </button>
+                    
+                    <button class="p-1 bg-dark rounded" data-bs-target="#inicio" data-bs-slide-to="1">
+                        <img class="w-100 rounded" src="./img/fifa1.jpg" alt="">
+                    </button>
+
+                    <button class="p-1 bg-dark rounded" data-bs-target="#inicio" data-bs-slide-to="2">
+                        <img class="w-100 rounded" src="./img/hog1.jpg" alt="">
+                    </button>
+
+                    <button class="p-1 bg-dark rounded" data-bs-target="#inicio" data-bs-slide-to="3">
+                        <img class="w-100 rounded" src="./img/kong1.jpg" alt="">
+                    </button>
+
+                    <button class="p-1 bg-dark rounded" data-bs-target="#inicio" data-bs-slide-to="4">
+                        <img class="w-100 rounded" src="./img/gta1.jpg" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <!-- recompensas -->  
+            <div class="bg-dark text-white rounded py-2 px-3">
+                <div class="d-flex ">
+                    <div>
+                        <h4>Você tem recompensas!</h4>
+                        <p class="text-secondary d-none d-lg-block my-0">Use as Recompensas Epic na finalização da compra para obter preços ainda melhores em jogos, complementos e muito mais.</p>
+                        <p class="text-secondary d-lg-none my-1">Use as Recompensas na finalização da compra para obter preços ainda melhores em jogos.</p>
+                    </div>
+
+                    <div class="ms-auto mt-1 d-none d-md-block">
+                        <h6 class="text-secondary my-0">Seu saldo atual:</h6>
+                        <span class="fw-bold fs-3">R$ 9,25</span>
+                    </div>
+                </div>
+
+                <div class="ms-auto mt-1 d-md-none">
+                    <h6 class="text-secondary my-0">Seu saldo atual:</h6>
+                    <span class="fw-bold fs-3">R$ 9,25</span>
+                </div>
             </div>
         </section>
 
-        <section class="p-5 oi" id="sobre">
-            <div class="container">
-                <h2 class="display-4 mb-3 text-center">Sobre a Steam</h2>
-                <p>A Steam é uma plataforma digital que oferece uma vasta coleção de jogos para todos os gostos. Com a Steam, você pode comprar, jogar, discutir e até mesmo desenvolver seus próprios jogos.</p>
-                <p>Temos diversas ferramentas e funcionalidades para que você tenha a melhor experiência de jogo possível, incluindo descontos incríveis e uma comunidade ativa.</p>
-                <div class="text-center">
-                    <a href="#contato" class="btn btn-success btn-lg">Entre em contato conosco</a>
+        <!-- games -->
+        <section class="text-white" id="games">
+            <!-- slide -->
+            <div class="row pt-4">
+                <div class="col-7 col-md-10 mb-4">
+                    <button class="nav-link">
+                        <a href="#" class="nav-link"><h3 class="d-flex"><span class="d-none d-md-block me-2">Principais Novos</span>Lançamentos</h3></a>
+                    </button>
+                </div>
+                <div class="col-5 col-md-2 text-end">
+                    <button type="button" class="prev btn btn-primary">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
+                    <button type="button" class="next btn btn-primary">
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            
+                <div class="slider px-1">
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="./img/red2.jpg" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Red Dead Redemption 2</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="./img/fifa2.jpg" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Edição Standard do EA SPORTS FC™ 25</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="./img/gta2.jpg" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Grand Theft Auto V</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="./img/hog2.jpg" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Hogwarts Legacy</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="./img/kong2.png" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Black Myth: Wukong</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Red Dead Redeption 6</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Red Dead Redeption 7</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mx-2">
+                        <div class="card text-white border-0 h-100">
+                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                            <div class="card-body pb-0 px-2">
+                                <h5 class="card-title">Red Dead Redeption 8</h5>
+                                <a href="#" class="stretched-link"></a>
+
+                                <div class="d-flex align-items-center gap-3">
+                                    <p class="bg-info rounded px-1 text-dark">-70%</p>
+                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                    <p class="fw-bold">R$ 90,74</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+
+            <!-- gêneros -->
+            <div class="py-5 text-white">
+                <div class="row">
+                    <div class="col-12 ">
+                        <a class="nav-link mb-lg-4" href="#"><h3>Principais Gêneros de Jogos</h3></a>
+                    </div>
+
+                    <ul class="nav col-12 py-2 d-lg-none">
+                        <li class="nav-item dropdown w-100">
+                            <button class="btn bg-dark text-white fw-bold w-100 ms-2" type="button" data-bs-toggle="dropdown">
+                                <span id="menuButton">Ação e Aventura</span>
+                                <hr class="m-1">
+                                <span class="setas"><i class="bi bi-caret-up-fill"></i></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark nav-pills fw-bold w-100 text-center">
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item active" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Ação e Aventura</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">RPG</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Estratégia</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Simulação</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Esportes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Horror e Suspense</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Puzzle</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Plataforma</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">MMO</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link dropdown-item" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Sandbox</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                
+                    <nav class="d-none d-lg-block col-lg-2">
+                        <ul class="nav nav-pills flex-column fw-bold">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Ação e Aventura</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">RPG</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Estratégia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Simulação</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Esportes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Horror e Suspense</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Puzzle</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Plataforma</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">MMO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="pill" data-bs-target="#tema1" href="#">Sandbox</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="col-lg-10 col-12">
+                        <div class="tab-content">
+                            <div class="tab-pane show fade active" id="tema1">
+
+                                <div class="col-12 d-flex">
+                                    <button class="nav-link">
+                                        <a href="#" class="nav-link"><h3>Mais vendidos</h3></a>
+                                    </button>
+                                
+                                    <button type="button" class="prev1 btn btn-primary ms-auto me-1">
+                                        <i class="bi bi-arrow-left"></i>
+                                    </button>
+                                    <button type="button" class="next1 btn btn-primary ">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+
+                                <div class="row slider1 p-1">
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/fifa2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/kong2.png" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/hog2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/gta2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/red2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="col-12 d-flex">
+                                    <button class="nav-link">
+                                        <a href="#" class="nav-link"><h3>Mais jogados</h3></a>
+                                    </button>
+                                
+                                    <button type="button" class="prev2 btn btn-primary ms-auto me-1">
+                                        <i class="bi bi-arrow-left"></i>
+                                    </button>
+                                    <button type="button" class="next2 btn btn-primary ">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+
+                                <!-- 2 seção -->
+                                <div class="row slider2 p-1">
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/hog2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/red2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/kong2.png" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/gta2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="./img/fifa2.jpg" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-2">
+                                        <div class="card text-white border-0 h-100">
+                                            <img src="https://placehold.co/900x950" class="rounded w-100" alt="">
+                                            <div class="card-body pb-0 px-2">
+                                                <h5 class="card-title">Red Dead Redeption 1</h5>
+                                                <a href="#" class="stretched-link"></a>
+                
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <p class="text-decoration-line-through text-secondary small">R$ 299</p>
+                                                    <p class="fw-bold">R$ 90,74</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- propaganda -->
+            <div class="row pb-5 g-4">
+                <div class="card col-md-4 col-12 border-0 px-3">
+                    <a href="#"><img src="./img/promoções1.jpg" class="rounded w-100" alt=""></a>
+                    <div class="card-body">
+                        <a class="nav-link text-white" href="#"><h4>Ofertas em promoções</h4></a>
+                        <p class="card-text text-secondary">Economize muito em títulos de sucesso e verdadeiros tesouros Tem sempre algo em promoção na Epic Games Store!</p>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary fw-bold">Navegar</button>
+                    </div>
+                </div>
+                <div class="card col-md-4 col-12 border-0 px-3">
+                    <a href="#"><img src="./img/promoções2.jpg" class="rounded w-100" alt=""></a>
+                    <div class="card-body">
+                        <a class="nav-link text-white" href="#"><h4>Jogos grátis</h4></a>
+                        <p class="card-text text-secondary">Explore jogos gratuitos e grátis para jogar de nossa coleção. Volte toda quinta-feira para um novo jogo grátis!</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary fw-bold">Jogue agorar</button>
+                    </div>
+                </div>
+                <div class="card col-md-4 col-12 border-0 px-3">
+                    <a href="#"><img src="./img/promoções3.jpg" class="rounded w-100" alt=""></a>
+                    <div class="card-body">
+                        <a class="nav-link text-white" href="#"><h4>Aplicativos</h4></a>
+                        <p class="card-text text-secondary">Curta alguns dos melhores aplicativos para música, jogos, criação e muito mais!</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary fw-bold">Navegar</button>
+                    </div>
                 </div>
             </div>
         </section>
         
-
-        <section class="p-5" id="contato">
-            <div class="container">
-                <h2 class="display-4 mb-3 text-center">Sobre a Steam</h2>
-                <p>A Steam é uma plataforma digital que oferece uma vasta coleção de jogos para todos os gostos. Com a Steam, você pode comprar, jogar, discutir e até mesmo desenvolver seus próprios jogos.</p>
-                <p>Temos diversas ferramentas e funcionalidades para que você tenha a melhor experiência de jogo possível, incluindo descontos incríveis e uma comunidade ativa.</p>
-                <div class="text-center">
-                    <a href="#contato" class="btn btn-success btn-lg">Entre em contato conosco</a>
+        <!-- sobre -->
+        <section class="py-4" id="sobre">
+            <div class="card nav text-white fw-bold">
+                <div class="card-header bg-dark">
+                    <h2 class="card-title">Sobre a Steam</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text text-secondary">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio voluptas laudantium aliquam nesciunt quam rerum ipsam expedita numquam,
+                        porro, deserunt consequatur temporibus amet at dignissimos ipsa magni. Autem, ea eaque?Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit 
+                        numquam ipsa in pariatur magni possimus fuga reiciendis et? Qui est itaque, voluptatem possimus fugiat eligendi! Nesciunt quia temporibus eaque quod lo.
+                        quibusdam, ea a expedita labore quisquam blanditiis possimus voluptatibus ipsum architecto. Expedita, perspiciatis?
+                    </p>
+                    <h4 class="card-title">Sobre a Steam</h4>
+                    <p class="card-text text-secondary">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi omnis deleniti dolore nostrum sit consequuntur sunt temporibus 
+                        quibusdam, ea a expedita labore quisquam blanditiis possimus voluptatibus ipsum architecto. Expedita, perspiciatis?
+                        quibusdam, ea a expedita labore quisquam blanditiis possimus voluptatibus ipsum architecto. Expedita, perspiciatis?
+                    </p>
+        
+                    <h2>Duvidas Frequentes</h2>
+                    <ul class="nav-tabs ">
+                        <li class="nav-item">
+                            <a class="nav-link active fw-bold" data-bs-toggle="tab" data-bs-target="#tab1" href="#">Gêneros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tab2" href="#">Promoções</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tab3" href="#">Pagamentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tab4" href="#">Suporte</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tab5" href="#">Lançamentos</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-2">
+                        <div class="tab-pane active" id="tab1">Oferecemos uma ampla variedade, incluindo ação, RPG, estratégia, simulação, esportes e aventura, garantindo opções para todos os perfis de jogadores.</div>
+                        <div class="tab-pane" id="tab2">Realizamos ofertas diárias e descontos exclusivos em lançamentos e clássicos, além de promoções sazonais que tornam nossos preços altamente competitivos.</div>
+                        <div class="tab-pane" id="tab3">Aceitamos diversos métodos, como cartão de crédito, boleto, PayPal e carteiras digitais, com processos de pagamento rápidos e totalmente seguros.</div>
+                        <div class="tab-pane" id="tab4">Nosso suporte ao cliente está disponível 24h via chat, e-mail e uma abrangente seção de FAQ, garantindo assistência imediata e eficaz.</div>
+                        <div class="tab-pane" id="tab5">Atualizamos nosso catálogo semanalmente com novos títulos e pré-vendas, mantendo os jogadores sempre informados sobre as últimas novidades.</div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <h6 class="text-secondary">Para saber mais click no link abaixo</h6>
+                    <a class="btn btn-primary fw-bold" href="#">Saiba mais</a>
                 </div>
             </div>
         </section>
-
-        <section class="p-5" id="link">
-            <div class="container">
-                <h2 class="display-4 mb-3 text-center">Entre em Contato</h2>
-                <p>Tem alguma dúvida ou sugestão? Entre em contato com nossa equipe e responderemos o mais rápido possível!</p>
-                <form>
-                    <div class="mb-3">
-                        <label for="nome" class="form-label">Seu Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+        
+        <!-- formulario -->
+        <section class="py-5" id="contato">
+            <div class="row text-white g-4">
+                <div class="col-md-6 col-12">
+                    <div class="">
+                        <h2>Tem alguma dúvida ou sugestão?</h2>
+                    
+                        <form class="fw-bold" >
+                            <div class="mb-2">
+                                <label class="form-label ps-1" for="nome">Digite seu nome</label>
+                                <input class="form-control bg-dark text-white" placeholder="EX: Cicero jeferson barbosa pinheiro" type="text" name="nome" id="nome" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label ps-1" for="email">Digite seu e-mail</label>
+                                <input class="form-control bg-dark text-white" placeholder="@exemploemail.com" type="email" name="email" id="email" required>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label ps-1" for="mensagem">Digite uma mensagem</label>
+                                <textarea class="form-control bg-dark text-white h-100" placeholder="Duvida ou sugestão de melhoria" name="mensagem" id="mensagem" required></textarea>
+                            </div>
+                            <div class="form-check form-switch d-flex justify-content-center">
+                                <div class="fs-5">
+                                    <input class="form-check-input bg-dark" type="checkbox" id="termos" required>
+                                    <label for="termos"><h6>Li e concordo com os termos.</h6></label>
+                                </div>
+                            </div>
+                            <div class="ms-auto d-flex">
+                                <button class="btn btn-danger fw-bold w-50" type="reset">Limpar</button>
+                                <button class="btn btn-success fw-bold w-50" type="submit">Enviar</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Seu E-mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
+                </div>
+                <div class="card col-md-6 col-12 border-0">
+                    <a href="#"><img src="./img/exclusivo.webp" class="rounded w-100" alt=""></a>
+                    <div class="card-body">
+                        <a class="nav-link text-white" href="#"><h4>Conteúdos Exclusivos para Membros</h4></a>
+                        <p class="card-text text-secondary">Tenha acesso a análises aprofundadas, dicas e truques exclusivos que só nossos membros podem aproveitar. Descubra conteúdos especiais e promoções únicas!</p>
+                        
                     </div>
-                    <div class="mb-3">
-                        <label for="mensagem" class="form-label">Mensagem</label>
-                        <textarea class="form-control" id="mensagem" rows="4" placeholder="Digite sua mensagem"></textarea>
+                    <div class="card-footer">
+                        <button class="btn btn-secondary fw-bold">Navegar</button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
+                </div>
             </div>
         </section>
-
-        
-        
     </div>
+    </div>
+    
+    <!-- rodapé -->
+    <footer class="container-fluid bg-dark text-white p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Steam, Inc.</h5>
+                    <p class="small">
+                        Líder global em distribuição digital de jogos e serviços. Conectando jogadores ao entretenimento desde 2003.
+                    </p>
+                </div>
 
+                <div class="col-md-2">
+                    <h6 class="fw-bold">Empresa</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Sobre nós</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Carreiras</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Notícias</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2">
+                    <h6 class="fw-bold">Suporte</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Central de ajuda</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Termos de Serviço</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 text-md-end text-center">
+                    <h6 class="fw-bold">Siga-nos</h6>
+                    <a href="#" class="text-light text-decoration-none me-3" aria-label="YouTube">
+                        <i class="bi bi-youtube fs-3"></i>
+                    </a>
+                    <a href="#" class="text-light text-decoration-none me-3" aria-label="Instagram">
+                        <i class="bi bi-instagram fs-4"></i>
+                    </a>
+                    <a href="#" class="text-light text-decoration-none me-3" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin fs-4"></i>
+                    </a>
+                    <a href="#" class="text-light text-decoration-none me-3" aria-label="Facebook">
+                        <i class="bi bi-facebook fs-4"></i>
+                    </a>
+                    <a href="#" class="text-light text-decoration-none" aria-label="Twitter X">
+                        <i class="bi bi-twitter-x fs-4"></i>
+                    </a>
+                </div>
+
+                <hr>
+                <div class="text-center small">
+                    © 2025 Steam, Inc. Todos os direitos reservados.
+                </div>
+                
+            </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- menu-final -->
+    <section class="navbar container-fluid sticky-bottom d-lg-none bg-dark py-0" id="menu">
+        <ul class="nav w-100 fw-bold d-flex justify-content-between align-items-center fs-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#menu-pesquisa">
+                    <i class="bi bi-house"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#games">
+                    <i class="bi bi-controller"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#sobre">
+                    <i class="bi bi-card-text"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contato">
+                    <i class="bi bi-chat-text"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-list"></i>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-menu a').click(function() {
+                $('#menuButton').text($(this).text())
+            })
+
+            $('.dropdown').on('show.bs.dropdown', function() {
+                $('.setas').html('<i class="bi bi-caret-down-fill"></i>')
+            });
+
+            $('.dropdown').on('hide.bs.dropdown', function() {
+                $('.setas').html('<i class="bi bi-caret-up-fill"></i>')
+            })
+        
+            $('.slider').slick({
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                prevArrow: $('.prev'),
+                nextArrow: $('.next'),
+                responsive: [
+                    {
+                        breakpoint: 990,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }
+                ]
+            })
+
+            $('.slider1').slick({
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                prevArrow: $('.prev1'),
+                nextArrow: $('.next1'),
+                responsive: [
+                    {
+                        breakpoint: 990,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }
+                ]
+            })
+
+            $('.slider2').slick({
+                slidesToShow: 5,
+                slidesToScroll: 5,
+                prevArrow: $('.prev2'),
+                nextArrow: $('.next2'),
+                responsive: [
+                    {
+                        breakpoint: 990,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    }
+                ]
+            })
+        })
+    </script>
 </body>
 </html>
